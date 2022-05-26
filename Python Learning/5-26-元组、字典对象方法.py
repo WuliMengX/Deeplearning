@@ -39,7 +39,7 @@ tuple.index(x,start,end)
     dic = dict( [ ("键",值) , ] ) #这里用元组
 
     5.通过zip()把对应元素打包成元组，类似上一种方法
-    dic = dict(zip( ["键",值], ) )
+    dic = dict(zip( ["键",], [值,] ) )
 
     6.利用类方法fromkeys()创建
     dic = dict.fromkeys( ("键", ) )      #所有键都为None
