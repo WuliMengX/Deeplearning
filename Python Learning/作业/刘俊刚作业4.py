@@ -25,7 +25,7 @@ list1.remove(sorted(list1,reverse=True).pop())
 # list1 = [1, 3, 2, 6, 4], 代码实现：删除list1元素中的中位数
 """
 list1 = [1, 3, 2, 6, 4]
-list1.pop((int(len(list1) / 2)))
+list1.remove(sorted(list1).pop(int(len(list1) / 2)))
 """
 # list1 = [1, 3, 2, 6, 1, 1, 4], 代码实现：求list1最后一个元素1的索引
 """
