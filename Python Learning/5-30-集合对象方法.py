@@ -18,6 +18,7 @@ symmetric_difference(other)   #返回对称差集,不同时属于两者的元素
 """
 
 """仅set对象可用"""
+"""注:对原数据进行操作"""
 """
 set.update(others)                     #更新集合,添加other中的所有元素
 
