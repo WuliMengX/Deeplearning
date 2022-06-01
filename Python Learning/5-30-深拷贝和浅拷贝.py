@@ -21,19 +21,3 @@
     1.如果深拷贝对象是不可变数据类型,复合类型还需要所有元素都不可变,那么和赋值语句等效(无拷贝意义)
     2.如果深拷贝对象是可变数据类型,深拷贝会将该对象复制一份,对于其中的元素分别递归地去适用前两点规则
 """
-import copy
-
-tup1 = (991,"abc")
-tup2 = copy.copy(tup1)
-print(id(tup1))
-print(id(tup2))
-
-tup3 = (991,"abc",[])
-tup4 = copy.copy(tup3)
-print(id(tup3))
-print(id(tup4))
-
-tup5 = [991,"abc"]
-tup6 = copy.copy(tup5)
-print(id(tup5))
-print(id(tup6))
