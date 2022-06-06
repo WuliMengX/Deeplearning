@@ -33,18 +33,20 @@
     9.:/        海象赋值运算符 
 
     海象赋值运算符:可在表达式内部为变量赋值,记得加括号
+    优点：减少代码量，不用事先声明中间变量
+    
     #写法一:
     string = "hello world"
     length = len(string)
     print(length + 5)
     print(f"string的长度为{length}")
 
-    #写法二
+    #写法二：
     string = "hello world"
     print(len(string) + 5)
     print(f"string的长度为{len(string)}")
 
-    #写法三
+    #写法三：
     string = "hello world"
     print( ( length := len(string) ) + 5)
     print(f"string的长度为{length}")
