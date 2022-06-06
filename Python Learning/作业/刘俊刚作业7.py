@@ -29,6 +29,10 @@ else:
     print("轻体重")
 """
 
+"""三元表达式：
+print("重度肥胖" if BMI >= 35 else "中度肥胖" if BMI >= 30 and BMI < 35 else "轻度肥胖" if BMI >= 27 and BMI < 30 else "超重" if BMI >= 23 and BMI < 27 else "正常" if BMI >= 18.5 and BMI <23 else "轻体重")
+"""
+
 """ 
 请用户输入三个不同的整数, 输入时用逗号(,)隔开, 利用条件语句判断出这三个整数中的最大值
 """
@@ -48,7 +52,9 @@ else:
         print(f"最大的整数为：{c}")
 """
 
-
+"""三元表达式：
+print(f"最大整数为：{a if a >= b and a >= c else b if b >= a and b >= c else c}")
+"""
 
 
 
