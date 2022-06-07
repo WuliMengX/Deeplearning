@@ -16,7 +16,7 @@ Weight = float(input("请输入您的体重(kg):"))
 
 if (BMI := Weight / Hight**2) >= 35:
     print("重度肥胖")
-elif BMI >= 30 and BMI < 35:            #可以直接写BMI >= 30即可，下同。每个条件语句只会满足一次结果，后面的就不会执行了
+elif BMI >= 30 and BMI < 35:            #! 可以直接写BMI >= 30即可，下同。每个条件语句只会满足一次结果，后面的就不会执行了
     print("中度肥胖")
 elif BMI >= 27 and BMI < 30:
     print("轻度肥胖")
@@ -39,7 +39,7 @@ print("重度肥胖" if (BMI := Weight / Hight**2) >= 35 else "中度肥胖" if 
 """
 a,b,c = input("请输入三个不同的整数，用(,)隔开:").split(sep=",")                    
 
-if a >= b:                                                      #转换成整数型再进行比较
+if a >= b:                                                      #! 转换成整数型再进行比较
     if a >= c:
         print(f"最大的整数为：{a}")
     else:

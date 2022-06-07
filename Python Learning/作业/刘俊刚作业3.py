@@ -36,7 +36,7 @@ print(string.capitalize())
 
 
 # string = "hello world"，代码实现：得到字符串为 "h~e~l~l~o~w~o~r~l~d"
-print("~".join(string.replace(" ","")))                                                               #replce去掉空格符 
+print("~".join(string.replace(" ","")))                                                               #replace去掉空格符 
 print("~".join("".join(string.split(" "))))                                                           #split去掉空格符，返回的字符串列表用join转换为字符串 
 print("~".join(string[:string.find(" ")] + string[string.find(" ")+1:len(string)]))                   #find返回空格符下标，切片拼接去掉空格符
 print("~".join(string.partition(" ")[0] + string.partition(" ")[2]))                                  #partition返回分割符为空格符的三元素元组，拼接除分隔符本身元素外的另外两个元素
