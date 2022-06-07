@@ -1,7 +1,5 @@
 import random
 
-from scipy import rand
-
 INFO = {0:"石头",1:"剪刀",2:"布"}
 
 computer = random.randint(0,2)
