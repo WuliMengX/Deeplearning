@@ -1,5 +1,6 @@
 import random
 
+"""
 INFO = {0:"石头",1:"剪刀",2:"布"}
 
 computer = random.randint(0,2)
@@ -13,7 +14,7 @@ elif player - computer == -1 or player - computer == 2:
     print("玩家胜利！")
 else:
     print("电脑胜利！")
-
+"""
 
 """random 模块常用函数"""
 """
@@ -33,3 +34,25 @@ random.randrange([start,]stop[,step])   等效于从range(start,stop,step)里随
 
 random.seed([x])                        起固定随机数的作用，x可以是任意数字：使用相同的x随机数种子生成的随机数值是一样的
 """
+
+"""进阶版"""
+INFO = {0: "石头", 1: "剪刀", 2: "布"}
+while True:
+    computer = random.randint(0, 2)
+    player = int(input("请出拳！输入0代表石头、1代表剪刀、2代表布："))
+    
+    print(f"电脑出拳：{INFO[computer]}\n玩家出拳：{INFO[player]}")
+
+    if computer == player:
+        print("平局")
+    elif player - computer == -1 or player - computer == 2:
+        print("玩家胜利！")
+    else:
+        print("电脑胜利！")
+
+    while (ans := input("是否继续游戏？（Y/N）")) not in ("Y","y","N","n"):
+        print("输入有误，重新输入：（Y/N）")
+        
+    if ans in ("N","n","NO","no"):
+        print("游戏结束！")
+        break
