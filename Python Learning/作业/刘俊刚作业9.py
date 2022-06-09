@@ -6,18 +6,19 @@
 """
 
 """
-intNum = int(input("请输入一个整数："))
+intNum = int(input("输入一个整数："))
 if intNum > 1:
-    num = intNum - 1
-    while True:
-        if intNum % num == 0:
-            print("这是一个质数！")
-        num -= 1
-        if num == 1:
-            print("这不是一个质数！")
-            break
+    sum = 0
+    for i in range(1,intNum):
+        if intNum % i == 0:
+            sum += 1
+    if sum == 1:
+        print("这是一个质数！")
+    else:
+        print("这不是一个质数！")  
+          
 else:
-    print("这不是一个质数！")
+    print("这不是一个质数")
 """
 
 """
