@@ -43,4 +43,6 @@ dict.setdefault(key,default)    #如果字典存在键key，返回它的值
 dict.copy()           #返回原字典的浅拷贝
 
 dict.clear()          #移除字典中所有元素，无返回值  
+
+map(key,iterable)     #将函数key作用到可迭代对象中的每一个元素，返回一个迭代器
 """
