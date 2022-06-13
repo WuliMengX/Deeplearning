@@ -1,12 +1,10 @@
 
 # 定义一个函数，实现功能: 移除字符串中的指定索引位置的字符，返回新的字符串
 
-
-
-
-
-
-
+def deleteStr(str, i):
+    L = list(str)
+    L.pop(i)
+    return ''.join(L)
 
 
 """
@@ -30,10 +28,13 @@
 """
 
 
+def differofms(n):
+    M = 1
+    S = 0
+    for i in list(n):
+        M *= int(i)
+        S += int(i)
+    return M - S
 
 
-
-
-
-
-
+print(differofms(input("n = ")))

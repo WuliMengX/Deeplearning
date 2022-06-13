@@ -4,12 +4,17 @@
 """
 
 
+def sum_DictNumber(dict):
+    (L := list(dict.keys())).extend(list(dict.values()))
+    sum = 0
+    for i in L:
+        if type(i) == int or type(i) == float:
+            sum += i
+    return sum
 
 
-
-
-
-
+dict = {'a': 100, 'b': 'qwer', 8: 300.1}
+print(sum_DictNumber(dict))
 
 """
 给你一个整数数组 arr, 请你判断数组中是否存在连续三个元素都是奇数的情况: 如果存在，请输出 True ；否则输出 False
@@ -25,7 +30,20 @@
 """
 
 
+def threeOdds(arr):
+    count = 0
+    for i in arr:
+        if i % 2 != 0:
+            count += 1
+        else:
+            count = 0
+        if count == 3:
+            print("True")
+            return True
+    print("False")
+    return False
 
 
-
-
+arr1 = [2, 6, 4, 1]
+arr2 = [1, 2, 34, 3, 4, 5, 7, 23, 12]
+threeOdds(arr2)
