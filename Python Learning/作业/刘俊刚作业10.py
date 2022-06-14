@@ -8,7 +8,7 @@ def sum_DictNumber(dict):
     (L := list(dict.keys())).extend(list(dict.values()))
     sum = 0
     for i in L:
-        if type(i) == int or type(i) == float:
+        if type(i) in (int, float,bool,complex):
             sum += i
     return sum
 
