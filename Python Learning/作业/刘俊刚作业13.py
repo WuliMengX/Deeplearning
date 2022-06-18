@@ -17,18 +17,22 @@
 输出: [1, 2, 1, 2]
 """
 
+def numsInput(): return [int(x) for x in input("依次输入数组的元素，用逗号隔开：").split(sep=",")]  # 列表推导式
 
+def sortnums(nums: list, n: int):
+    if n == 1:
+        return nums
+    else:
+        i = 0
+        while True:
+            nums.insert(2*i+1, nums.pop(n))  # 只对yn进行pop和insert操作
+            i += 1
+            n += 1
+            if n == len(nums) - 1:
+                break
+        return nums
 
-
-
-
-
-
-
-
-
-
-
+print(sortnums(numsInput(), int(input("n = "))))
 
 
 """
@@ -47,15 +51,6 @@
 解释: 动态和计算过程为 [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1] 。
 """
 
+def runingSum(nums: list): return [sum(nums[:i[0]+1]) for i in list(enumerate(nums))]   #枚举获得下标 通过切片和sum函数获得动态和 用列表推导式返回列表
 
-
-
-
-
-
-
-
-
-
-
-
+print(runingSum(numsInput()))
