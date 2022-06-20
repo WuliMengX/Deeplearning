@@ -5,20 +5,15 @@
 """
 
 
+def func(x: int):
+    if x == int("".join(reversed(list(str(x))))):
+        return True
+    else:
+        return False
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+# x = int(input("输入整数："))
+# print(func(x))
 
 
 """
@@ -30,15 +25,14 @@
 """
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+def if_Armstrong_number(x: int):
+    sum = 0
+    for i in str(x):
+        sum += int(i)**len(str(x))
+    if sum == x:
+        return True
+    else:
+        return False
+    
+# x = int(input("输入正整数n:"))
+# print(if_Armstrong_number(x))

@@ -32,7 +32,7 @@ def sortnums(nums: list, n: int):
                 break
         return nums
 
-print(sortnums(numsInput(), int(input("n = "))))
+# print(sortnums(numsInput(), int(input("n = "))))
 
 
 """
@@ -53,4 +53,4 @@ print(sortnums(numsInput(), int(input("n = "))))
 
 def runingSum(nums: list): return [sum(nums[:i[0]+1]) for i in list(enumerate(nums))]   #枚举获得下标 通过切片和sum函数获得动态和 用列表推导式返回列表
 
-print(runingSum(numsInput()))
+# print(runingSum(numsInput()))
