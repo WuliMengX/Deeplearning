@@ -15,7 +15,7 @@
 
 
 def oddnumber(low: int, high: int):
-    return [x for x in range(low, high + 1) if x % 2 != 0]
+    return len([x for x in range(low, high + 1) if x % 2 != 0])
 
 
 # print(oddnumber(3, 7))
@@ -27,7 +27,7 @@ def oddnumber(low: int, high: int):
 
 
 def Twin__Prime(x: int):
-    def if_prime(num: int):
+    def if__prime(num: int):
         if num == 2:
             return True
         for i in range(2, num):
@@ -35,7 +35,7 @@ def Twin__Prime(x: int):
                 return False
         return True
 
-    lis = [i for i in range(2, x + 1) if if_prime(i)]
+    lis = [i for i in range(2, x + 1) if if__prime(i)]
     return [(i, i + 2) for i in lis if (i + 2) in lis]
 
 
