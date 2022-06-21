@@ -4,17 +4,17 @@
 """
 
 
-def sum_DictNumber(dict):
-    (L := list(dict.keys())).extend(list(dict.values()))
-    sum = 0
-    for i in L:
-        if type(i) in (int, float,bool,complex):
-            sum += i
-    return sum
+def sum_DictNumber(dit):
+    (lis := list(dit.keys())).extend(list(dit.values()))
+    s = 0
+    for i in lis:
+        if type(i) in (int, float, bool, complex):
+            s += i
+    return s
 
 
-dict = {'a': 100, 'b': 'qwer', 8: 300.1}
-print(sum_DictNumber(dict))
+dct = {'a': 100, 'b': 'qwer', 8: 300.1}
+print(sum_DictNumber(dct))
 
 """
 给你一个整数数组 arr, 请你判断数组中是否存在连续三个元素都是奇数的情况: 如果存在，请输出 True ；否则输出 False

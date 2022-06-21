@@ -26,10 +26,10 @@ def func(x: int):
 
 
 def if_Armstrong_number(x: int):
-    sum = 0
+    s = 0
     for i in str(x):
-        sum += int(i)**len(str(x))
-    if sum == x:
+        s += int(i)**len(str(x))
+    if s == x:
         return True
     else:
         return False

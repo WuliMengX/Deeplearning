@@ -15,7 +15,7 @@
 
 
 def oddnumber(low: int, high: int):
-    return [x for x in range(low, high+1) if x % 2 != 0]
+    return [x for x in range(low, high + 1) if x % 2 != 0]
 
 
 # print(oddnumber(3, 7))
@@ -25,14 +25,18 @@ def oddnumber(low: int, high: int):
 输出100以内的孪生质数 (孪生质数就是指相差2的质数对, 例如3和5, 5和7, 11和13…)
 """
 
-def Twin_Prime(x: int):
-    def if_prime(num: int): 
-        if num == 2: return True
+
+def Twin__Prime(x: int):
+    def if_prime(num: int):
+        if num == 2:
+            return True
         for i in range(2, num):
-            if num % i == 0: return False
+            if num % i == 0:
+                return False
         return True
-    
-    L = [i for i in range(2,x+1) if if_prime(i)]
-    return [(i,i+2) for i in L if (i+2) in L]
-        
-print(Twin_Prime(100))
+
+    lis = [i for i in range(2, x + 1) if if_prime(i)]
+    return [(i, i + 2) for i in lis if (i + 2) in lis]
+
+
+print(Twin__Prime(100))
