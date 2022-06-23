@@ -21,9 +21,20 @@ def numsInput(): return [int(x)
 
 
 def good_number_count(nums: list):
+    i = 0
     count = 0
+    for x in nums:
+        for y in nums[i+1:]:
+            if x == y:
+                count += 1
+        i += 1
+        if i == len(nums) - 1:
+            return count
+
+# nums = numsInput()
+# print(good_number_count(nums))
     
-    pass
+  
 
 """
 给你一个字符串 s，请你返回 两个相同字符之间的最长子字符串的长度 ，计算长度时不含这两个字符。如果不存在这样的子字符串，返回 -1 。
@@ -51,3 +62,15 @@ def good_number_count(nums: list):
 输出：4
 解释：最优的子字符串是 "abba" ，其他的非最优解包括 "bb" 和 "" 。
 """
+
+def lonest_string(string):
+    i = 0
+    count = -1
+    for x in string:
+        if (j := string.rfind(x)) != -1 and j - i - 1 > count:
+            count = j - i - 1
+        i += 1
+    return count
+
+# string = input("请输入字符串:")
+# print(lonest_string(string))
