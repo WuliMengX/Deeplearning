@@ -1,25 +1,24 @@
 class Student(object):  #通常自定义的类首字母要大写
                         #所有类都默认继承object类，是所有类的基类（父类），Student为子类
-    def __init__(self, name, age, adres): #实例变量
+    def __init__(self, name, age, adres): #实例变量 初始化方法会自动调用
         self.names = name
         self.ages = age
         self.addres = adres
         
-    school = "深兰交大"  #类变量
-    
-    def eat(self):
+    def eat(self):  #self表示当前调用的实例对象
         print(f"{self.names}吃菜")
         print(f"{self.names}扒饭")
     
     @classmethod #类方法的装饰器    
-    def sleep(cls):
-        print("我睡觉了")
+    def sleep(cls): #cls表示当前调用的类对象
+        print(cls)
+        print(f"今天在{cls.school}上了一天的课，想睡觉了")
     
     @staticmethod #静态方法修饰器
     def eat(): 
         print("我要开动了")
         
-        
+    school = "深兰交大"  #类变量
         
 stu1 = Student("张三",18,"威宁路")
 stu2 = Student("李四",19,"长宁路")
@@ -48,7 +47,7 @@ stu2 = Student("李四",19,"长宁路")
     
     类里面的叫做方法，不在类里面的叫做函数
     参数带self的是对象方法，参数带cls的是类方法，函数可以没有参数
-    
+    self cls不是关键字，可以自定义，但要作为第一个参数
     
 """
 
@@ -62,7 +61,18 @@ stu2 = Student("李四",19,"长宁路")
 # Student.school = "交大深兰"
 # print(Student.school)
 
-""" 对象方法调用 """
+""" 对象方法调用只能用实例对象调用 """
+# stu1.eat()
+# stu2.eat()
+
+""" 实例属性只能由实例对象调用 """
+
+""" 类方法调用 推荐用类调用，实例对象也能调用 """
+# Student.sleep()
+# stu1.sleep()
+
+""" 静态方法调用 推荐用类调用，实例对象也能调用"""
+Student.eat()
 stu1.eat()
-stu2.eat()
-Student.eat(stu1)
+
+

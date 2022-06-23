@@ -18,21 +18,14 @@
 """
 
 
+from pyparsing import nums
 
 
+def good_string(string: str):
+    return len(set([string.count(i) for i in set(list(string))])) == 1
 
-
-
-
-
-
-
-
-
-
-
-
-
+# string = input("输入字符串:")
+# print(good_string(string))
 
 
 """
@@ -53,15 +46,14 @@
 """
 
 
+def numsInput(): return [int(x)
+                         for x in input("依次输入数组的元素，用逗号隔开：").split(sep=",")]
 
 
+def only_number(nums: list):
+    str_nums = [str(x) for x in nums]
+    return sum([int(i) for i in set(str_nums) if "".join(str_nums).count(i) == 1])
 
 
-
-
-
-
-
-
-
-
+nums = numsInput()
+print(only_number(nums))
