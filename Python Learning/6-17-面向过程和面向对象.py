@@ -109,10 +109,44 @@ stu2 = Student("李四",19,"长宁路")
         子类继承父类后，会拥有父类中所有的非私有属性和方法
         继承的作用：从子类来看，继承可以简化代码；从父类来看，子类是对父类功能的扩充
         
-        单继承：继承父类个数为一个
+        单继承：继承父类个数为一个 父子 父子孙
         
-        多重继承：继承父类为多个
+        多重继承：继承父类为多个   多个父类
+        
+        继承顺序：
+                单继承 先找自己，再去找父类，再去好父类的父类等等
+                多重继承：先找自己，再去找父类，父类如果有继承，要把继承找完为止，多个父类按照从左往右顺序查找
+        
+        方法重写：在继承中，当父类的方法功能不能满足需求时，可以在子类重写父类的方法
+        
+        super([类，self]) 调用指定类的父类（超类）
+        适用场景：   a. 在子类重写父类方法后，想再使用父类的该方法   
+                    b. 在多重继承时，想要调用指定类的属性或方法     
+                    参数中的类如果是调用super的类，则调用该类的父类
+                    参数中的类如果是调用super的类的多个父类中的一个，则优先调用这个父类的右边那个类的方法，找不到才调用这个父类的方法  
+                    
         
         
         
+        
+                      
 """
+""" super方法 """
+# class Biology:
+#     def sleep(self):
+#         print("Biology睡觉")
+# class Animal:
+#     def sleep(self):
+#         print("Animal睡觉")
+# class Cat(Biology):
+#     def sleep(self):
+#         print("Cat睡觉")
+# class Ragdoll(Cat, Animal, Biology):
+#     def sleep(self):
+#         super().sleep()               # 调用当前类的父类的sleep方法
+#         super(Ragdoll, self).sleep()  # 调用Ragdoll类的父类的sleep方法
+#         super(Animal, self).sleep()   # 调用Animal类的右边那个类的sleep方法
+#         super(Cat, self).sleep()      # 调用Cat类的右边那个类的sleep方法
+        
+# rd = Ragdoll()
+# rd.sleep()

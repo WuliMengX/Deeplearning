@@ -31,8 +31,8 @@ def good_number_count(nums: list):
         if i == len(nums) - 1:
             return count
 
-# nums = numsInput()
-# print(good_number_count(nums))
+nums = numsInput()
+print(good_number_count(nums))
     
   
 
