@@ -18,11 +18,8 @@
 """
 
 
-from pyparsing import nums
-
-
 def good_string(string: str):
-    return len(set([string.count(i) for i in set(list(string))])) == 1
+    return len(set([string.count(i) for i in string])) == 1
 
 # string = input("输入字符串:")
 # print(good_string(string))
@@ -55,5 +52,5 @@ def only_number(nums: list):
     return sum([int(i) for i in set(str_nums) if "".join(str_nums).count(i) == 1])
 
 
-nums = numsInput()
-print(only_number(nums))
+# nums = numsInput()
+# print(only_number(nums))
