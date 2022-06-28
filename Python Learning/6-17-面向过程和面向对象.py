@@ -123,11 +123,7 @@ stu2 = Student("李四",19,"长宁路")
         适用场景：   a. 在子类重写父类方法后，想再使用父类的该方法   
                     b. 在多重继承时，想要调用指定类的属性或方法     
                     参数中的类如果是调用super的类，则调用该类的父类
-                    参数中的类如果是调用super的类的多个父类中的一个，则优先调用这个父类的右边那个类的方法，找不到才调用这个父类的方法  
-                    
-        
-        
-        
+                    参数中的类如果是调用super的类的多个父类中的一个，则优先调用这个父类的右边那个类的方法，找不到才调用这个父类的方法    
         
                       
 """
@@ -150,3 +146,34 @@ stu2 = Student("李四",19,"长宁路")
         
 # rd = Ragdoll()
 # rd.sleep()
+""" 继承中的__init__方法 """
+class A:
+    def E(self):
+        print('E方法被调用')
+    def __init__(self, name):
+        self.name = name
+        self.Q()
+    def Q(self):
+        print(self.name, 'Q方法被调用')
+class B(A):
+    pass
+b = B('张三')  # 实例化,调用初始化方法,B没有则调用父类中的初始化方法,初始化方法中调用了Q方法
+b.E()  # 调用父类的E方法
+b.Q()  # 调用父类的Q方法
+class C(A):
+    def __init__(self, name):
+        self.names = name
+c = C('赵六')  # 实例化, 优先调用C中初始化方法
+"""
+虽然可以调用父类的Q方法, 但是因为Q方法中的
+self.name没有定义, 因为A的初始化方法没有被调用, 所以报错
+解决方案: 先通过c调用一次A的初始化方法 或者 把C类中的
+self.names改为self.name
+"""
+# c.Q() # 报错
+class D(A):
+    def __init__(self, name):
+        super(D, self).__init__('李四')
+        self.name = name
+d = D('王五')  # 实例化, 先调用D的初始化方法, super方法调用父类的初始化方法, 父类的初始化方法中调用Q方法
+d.Q()  # 调用父类的Q方法
