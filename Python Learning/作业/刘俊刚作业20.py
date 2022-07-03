@@ -29,6 +29,24 @@ word2：    p   q
 合并后：  a p b q c   d
 """
 
+def merge_string(word1,word2):
+    lis = []
+    list1=list(word1)
+    list2=list(word2)
+    while True:
+        lis.append(list1.pop(0))
+        lis.append(list2.pop(0))
+        if not list1:
+            lis.extend(list2)
+            return "".join(lis)
+        if not list2:
+            lis.extend(list1)
+            return "".join(lis)
+        
+        
+# word1 = input("请输入word1:")
+# word2 = input("请输入word2:")
+# print(merge_string(word1,word2))
 
 
 
@@ -61,8 +79,30 @@ word2：    p   q
 输出："19:22"
 """
 
+def latest_time(time_string):
+    time_list = list(time_string)
+    
+    if time_list[0] == '?' and time_list[1] == '?':
+        time_list[0:2] = '00'
+        
+    count = -1
+    for i in time_list:
+        count += 1
+        if i == "?":
+            if count == 0:
+                time_list[count] = '2'
+            elif count == 1:
+                if time_list[0] == '2':
+                    time_list[count] = '3'
+                else:
+                    time_list[count] = '9'
+            elif count == 3:
+                time_list[count] = '5'
+            elif count == 4:
+                time_list[count] = '9'
+    return ''.join(time_list)
 
-
+# print(latest_time('0?:3?'))
 
 
 
