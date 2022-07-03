@@ -45,9 +45,6 @@
 # print(n1 + n2)
 
 
-from pyrsistent import s
-
-
 def get_gcd(a, b):
     for i in range(min(abs(a), abs(b)), 0, -1):
         if a % i == 0 and b % i == 0:
