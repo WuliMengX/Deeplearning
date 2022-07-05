@@ -7,8 +7,8 @@
 
 """内置异常"""
 
-import builtins
-print(dir(builtins))
+# import builtins
+# print(dir(builtins))
 
 """处理异常"""
 """
@@ -41,20 +41,32 @@ print(dir(builtins))
 
 """
 
+# def div(a,b):
+#     try:
+#         c = a / b
+#         print(f"{a} / {b} = {c}")
+        
+#     except ZeroDivisionError as e:  # 相当于e = ZeroDivisionError('division by zero')
+#         print(isinstance(e,ZeroDivisionError))
+#         print(e)
+        
+# div(2,0)
+
+
 """抛出异常"""
 """
     raise 语句可以主动的抛出异常
     raise 后面可以是 异常实例 / 异常类 / 没有内容
 """
 
-def div(a, b):
-    if b == 0:
-        raise ZeroDivisionError('除数为0')
-    c = a / b
-    print(f"{a} / {b} = {c}")
+# def div(a, b):
+#     if b == 0:
+#         raise ZeroDivisionError('除数为0')
+#     c = a / b
+#     print(f"{a} / {b} = {c}")
     
-div(2, 1)
-div(2, 0)
+# # div(2, 1)
+# div(2, 0)
 
 
 
@@ -63,12 +75,54 @@ div(2, 0)
     自定义的异常类通常需要直接或间接的继承 Exception 类
 """
 
-class MyError(Exception):
-    def __init__(self, message):
-        self.message = message
+# class MyError(Exception):
+#     def __init__(self, message):
+#         self.message = message
 
-    def __str__(self):
-        return str(self.message)
+#     def __str__(self):
+#         return str(self.message)
 
 
-print(MyError("发生了一个异常"))
+# print(MyError("发生了一个异常"))
+
+"""assert 断言"""
+"""
+    assert 用于判断一个表达式，在表达式为 False 的时候触发AssertionError 异常
+    
+    assert expression 等价于if not expression: raise AssertionError
+    assert expression [, arguments]等价于：if not expression: raise AssertionError(arguments)
+    
+    断言成功，继续执行
+    断言失败，到此为止
+"""
+# num = int(input("请输入一个整数: "))
+# assert num != 1
+# print("断言条件为True, 用户没有输入1")
+
+# num = int(input("请输入一个整数: "))
+# assert num != 1, "用户不能输入1"
+# print("断言条件为True, 用户没有输入1")
+
+"""
+    traceback.format_exc() 返回字符串
+    traceback.print_exc()  无返回值，直接输出
+    
+    其他地方两者相同
+"""
+# import traceback
+
+# def div(a, b):
+#     try:
+#         c = a / b
+#         print(f"{a} / {b} = {c}")
+#     except:
+#         traceback.print_exc()
+#         print(res := traceback.format_exc())
+#         print(type(res))
+        
+# div('2', 2)
+
+
+
+
+
