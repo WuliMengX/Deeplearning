@@ -6,7 +6,7 @@
   
 ## 流程图示意
 <div align = center>
-    <img src = 'files/compile_link.jpg' width = '80%'>
+    <img src = 'files/compile_link.jpg' width = '100%'>
 </div>
 
 [详细可参考：Makefile教程](https://zhuanlan.zhihu.com/p/396448133#:~:text=2.%20C%2B%2B%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%20/%20%E7%BC%96%E8%AF%91%E6%97%B6%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6)
