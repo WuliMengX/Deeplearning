@@ -205,5 +205,63 @@ class MyList:
 
 """生成器表达式"""
 """
-
+    生成器表达式所用语法类似列表推导式，只是外层为圆括号而非方括号
+    生成器表达式相比完整的生成器更紧凑但较不灵活，相比等效的列表推导式则更为节省内存，
+    因为列表推导式是一次构建一个结果列表，而生成器表达式返回的是一个生成器，再根据对生成器的处理函数按需迭代产生结果
+    生成器表达式如果立即被外层的函数使用, 可以省略圆括号
+    
 """
+
+# print(sum( i for i in range(10) ))      # 生成器表达式 放在函数中可以省略圆括号
+# print(sum( (i for i in range(10)) ))    # 生成器表达式原型 元组没有推导式
+# print(sum( [i for i in range(10)] ))    # 列表推导式
+
+# res1 = [i**2 for i in range(4)]
+# print(res1) # [0,1,4,9]
+ 
+# res2 = (i**2 for i in range(4)) 
+# print(res2) # <generator object <genexpr> at 0x00000205077D26C0>
+# for i in res2:
+#     print(i) 
+
+"""两个迭代器相关的内置函数"""
+"""
+    iter(object[,sentinel])：把对象转换成一个迭代器对象
+    
+        1.如果没有第二个实参，object必须支持迭代协议（有__iter__()方法）或序列协议（有__getitem__()方法，且数字参数从0开始）。
+            如果它不支持这些协议，会触发TypeError
+        
+        2.如果有第二个实参sentinel，那么object必须是可调用的（函数、方法、lambda匿名函数、 类以及实现了 __call__ ()方法的实例对象）。
+            这种情况下生成的迭代器，每次迭代调用它的__next__()方法时都会不带实参地调用object，返回调用的结果，如果返回的结果是sentinel，则触发StopIteration
+            比如object是实例对象，像函数一样调用实例对象时，会自动调用__call__方法
+    
+    next(iterator[,default])
+        通过调用 迭代器iterator 的 __next__() 方法获取下一个元素。
+        如果迭代器耗尽，则返回给定的 default，如果没有默认值则触发StopIteration
+        
+"""
+# res = iter([1,2,3,4])   # 把列表迭代对象 变成 列表迭代器
+# print(res)              # <list_iterator object at 0x000002562EF0BFD0>
+
+class Number:
+    
+    def __init__(self,num):
+        self.num = num
+        
+    def __call__(self):
+        res = self.num
+        self.num += 1
+        return res
+
+nb = Number(9)
+res = iter(nb,100)
+# print(res.__next__())   # 就是不带实参地调用object，即nb() => 9
+# print(res.__next__())   # 即nb() => 10
+# print(res.__next__())   # 即nb() => 11 
+
+for i in res:
+    print(i)
+    
+print(next(res))               # res.__next__()
+print(next(res,"迭代到头了"))   # res.__next__()
+    
