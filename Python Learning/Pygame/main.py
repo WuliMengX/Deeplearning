@@ -9,7 +9,7 @@ screen = pygame.display.set_mode((400, 400))
 # 设置窗口的标题，即游戏名称
 pygame.display.set_caption('hello world')
 # 引入字体类型
-f = pygame.font.Font('C:/Windows/Fonts/simhei.ttf', 50)
+f = pygame.font.Font('/home/ubuntu/桌面/simhei.ttf', 50)
 # 生成文本信息，第一个参数文本内容；第二个参数，字体是否平滑；
 # 第三个参数，RGB模式的字体颜色；第四个参数，RGB模式字体背景颜色；
 text = f.render("C语言中文网", True, (255, 0, 0), (0, 0, 0))
