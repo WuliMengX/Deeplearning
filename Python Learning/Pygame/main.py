@@ -13,7 +13,7 @@ f = pygame.font.Font('/home/ubuntu/桌面/simhei.ttf', 50)
 # 生成文本信息，第一个参数文本内容；第二个参数，字体是否平滑；
 # 第三个参数，RGB模式的字体颜色；第四个参数，RGB模式字体背景颜色；
 text = f.render("C语言中文网", True, (255, 0, 0), (0, 0, 0))
-# 获得显示对象的rect区域坐标
+# 获得显示对象的rect区域坐标    
 textRect = text.get_rect()
 # 设置显示对象居中
 textRect.center = (200, 200)
