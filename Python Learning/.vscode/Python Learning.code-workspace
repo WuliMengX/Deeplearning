@@ -1,17 +1,7 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../Python课件"
-		}
-	],
-	"settings": {
-		"cSpell.words": [
-			"blit",
-			"pygame",
-			"simhei"
-		]
-	}
+    "folders": [
+        {
+            "path": ".."
+        }
+    ]
 }
