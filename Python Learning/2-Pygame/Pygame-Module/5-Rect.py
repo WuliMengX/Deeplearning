@@ -28,26 +28,3 @@
         w,h  #用于描述矩形的width、height
         
 """
-import pygame
-
-pygame.init()
-screen = pygame.display.set_mode((500,300))
-pygame.display.set_caption('c语言中文网')
-image_surface = pygame.image.load("C:/Users/Administrator/Desktop/c-net.png")
-
-rect1 = pygame.Rect(50,50,100,100)
-
-# 在原图的基础上创建一个新的子图（surface对象）
-image_child= image_surface.subsurface(rect1)
-rect2 = image_child.get_rect()
-
-#输出的矩形大小为 100*100
-print(rect2)
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            exit()
-    #在屏幕上显示子图的区域
-    screen.blit(image_child,rect1)
-    pygame.display.update()

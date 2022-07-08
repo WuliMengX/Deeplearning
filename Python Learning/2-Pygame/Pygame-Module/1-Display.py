@@ -49,32 +49,3 @@
             
         
 """
-import sys
-import pygame
-
-
-
-#使用pygame之前必须初始化
-pygame.init()
-
-#设置主屏窗口
-screen = pygame.display.set_mode((400,400))
-
-#填充主窗口的背景颜色，参数值RGB（颜色元组）
-screen.fill((156,156,156))
-
-#设置窗口标题
-pygame.display.set_caption('c语言中文网')
-
-# 如果没有下列主循环代码，运行结果会一闪而过
-while True:
-    # 循环获取事件，监听事件
-    for event in pygame.event.get():
-        # 判断用户是否点了关闭按钮
-        if event.type == pygame.QUIT:
-            #卸载所有模块
-            pygame.quit()
-            #终止程序
-            sys.exit()
-    #更新屏幕内容
-    pygame.display.flip()
