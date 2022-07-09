@@ -1,0 +1,5 @@
+1%%xiaoxiong%%100
+2%%haier%%200
+3%%lianxiang%%300
+4%%taobao%%400
+5%%jingdong%%500
