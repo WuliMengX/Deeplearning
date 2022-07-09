@@ -163,3 +163,4 @@ for i in wordList:
     pattern = re.compile("(Alice|Bob|Carol)\s(eats|pets|throws)\s(apples|cats|baseballs)\.$",re.I)
     result = re.match(pattern,i)
     print(result)
+    
