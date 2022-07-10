@@ -38,8 +38,4 @@
         3.random生成随机数的数组
 
 """
-
-
 import numpy as np
-
-np.ones_like
