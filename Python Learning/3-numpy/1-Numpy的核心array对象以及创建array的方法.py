@@ -35,7 +35,7 @@
                 numpy.full(shape, fill_value, dtype=None, order='C')    创建的数组元素全是指定值fill_value
                 numpy.full_like(array, fill_value, dtype=None)                                              
             
-        3.random模块生成随机数的数组
+        3.random模块生成随机数的数组jup
             numpy中有一些常用的用来产生随机数的函数，randn()和rand()就属于这其中
                 randn(d0, d1, ..., dn)      (d0,d1,...,dn)可理解为shape
                                             不带参数则返回一个值
@@ -51,8 +51,8 @@
             函数：
                 array.reshape(shape)  将数组化为shape形的数组
                 numpy.shape(array)    返回数组的shape属性
-                numpy.sin(array)      求数组内元素的正弦值sin(x)
-                numpy.exp(array)      求数组内元素的自然数e的x次方
+                numpy.sin(array)      求数组内元素的正弦值sin(x)数组
+                numpy.exp(array)      求数组内元素的自然数e的x次方数组
                 等等
                   
 """
