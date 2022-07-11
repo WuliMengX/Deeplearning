@@ -40,8 +40,8 @@
                 randn(d0, d1, ..., dn)      (d0,d1,...,dn)可理解为shape
                                             不带参数则返回一个值
          
-        numpy.random.randn(d0, d1, …, dn)是从标准正态分布中返回一个或多个样本值。 
-        numpy.random.rand(d0, d1, …, dn)的随机样本位于[0, 1)中
+            numpy.random.randn(d0, d1, …, dn)是从标准正态分布中返回一个或多个样本值。 
+            numpy.random.rand(d0, d1, …, dn)的随机样本位于[0, 1)中
         
         4.array支持大量操作和函数
         
