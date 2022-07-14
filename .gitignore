@@ -2,13 +2,6 @@ AIgoC++/面向AI算法的C++课程/files
 AIgoC++/课程代码/algorithm-cpp/files
 Tensorflow/*
 pytorch/*
-Python Learning/Pygame/.idea/*
-Python Learning/2-Pygame/.idea/2-Pygame.iml
-Python Learning/2-Pygame/.idea/misc.xml
-Python Learning/2-Pygame/.idea/modules.xml
-Python Learning/2-Pygame/.idea/vcs.xml
-Python Learning/2-Pygame/.idea/inspectionProfiles/profiles_settings.xml
-Python Learning/2-Pygame/.idea/inspectionProfiles/Project_Default.xml
-Python Learning/2-Pygame/.idea/.gitignore
-Python Learning/2-Pygame/sources/airv1/__pycache__/background.cpython-39.pyc
+Python Learning/2-Pygame/.idea/*
 Python Learning/2-Pygame/sources/airv1/__pycache__/*
+Pandas Demo/Data/*
