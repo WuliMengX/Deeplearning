@@ -4,4 +4,5 @@ Tensorflow/*
 pytorch/*
 Python Learning/2-Pygame/.idea/*
 Python Learning/2-Pygame/sources/airv1/__pycache__/*
-Pandas Demo/Data/*
+Pandas Demo/
+
