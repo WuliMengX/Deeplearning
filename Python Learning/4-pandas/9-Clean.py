@@ -13,6 +13,15 @@
                     函数别名df.null()
         df.fillna(string)   将缺失值替换为string
     
+    转换某一列的数据类型：
+        df[columns] = df[columns].astype(float)
     
-
+    定义哪些值为缺失值：
+        df = pd.read_csv("文件路径",na_values=) 可以定义一个列表传给na_values参数来自定义缺失值
+        
+    unique()           返回Series或DataFrame中去重后的不同值组成的字符串数组，不能排除缺失值
+    nunique(dropna=)   返回不同值的个数，默认排除缺失值，可设置参数dropna=False返回包括缺失值在内的不同值个数
+    
+    
+    
 """
