@@ -40,8 +40,8 @@
             常用函数：
                 df.head()      
                 df.tail()
-                df[columns].unique()            返回唯一值的个数
-                df[columns].nunique()           返回唯一值的列表
+                df[columns].unique()            返回唯一值列表
+                df[columns].nunique()           返回唯一值的个数
                 df[columns].count()             返回非缺失值元素个数
                 df[columns].value_counts()      返回各个唯一值元素的个数
                 df.info()                       
@@ -61,9 +61,5 @@
                 
                 df.nlargest(n,columns)   返回columns列值最大的前n行   
                 df.nsmallest(n,columns)  返回columns列值最小的前n行 
-                                
-                
-                
-                
-                
+                                         
 """
