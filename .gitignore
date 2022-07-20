@@ -9,3 +9,11 @@ Pandas Demo/*.ipynb
 Pandas Demo/Snippets.ipynb
 Python课件/pandas/*.ipynb
 Python课件/pandas/第1章 Pandas基础.ipynb
+matplotlib Demo/.idea/matplotlib Demo.iml
+matplotlib Demo/.idea/misc.xml
+matplotlib Demo/.idea/vcs.xml
+.gitignore
+matplotlib Demo/.idea/modules.xml
+matplotlib Demo/.idea/workspace.xml
+matplotlib Demo/.idea/inspectionProfiles/profiles_settings.xml
+matplotlib Demo/.idea/
