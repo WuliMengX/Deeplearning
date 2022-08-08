@@ -25,10 +25,10 @@ for i in T:
 listDistance.sort()
 
 print(listDistance)
-weight = [1/i[0] for i in listDistance[:K]]
-print(weight)
-weight /= sum(weight)
-print(weight)
+weight = [1/(i[0]+0.001) for i in listDistance[:K]]
+# print(weight)
+# weight /= sum(weight)   # 权重归一化
+# print(weight)
 
-# pre = -1 if sum([1 / i[0] * i[1] for i in listDistance[:K]]) < 0 else 1
-# print(pre)
+pre = -1 if sum([1 / (i[0]+0.001) / sum(weight) * i[1] for i in listDistance[:K]]) < 0 else 1
+print(pre)

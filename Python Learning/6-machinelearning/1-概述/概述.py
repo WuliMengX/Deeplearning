@@ -35,8 +35,6 @@
         平均平方根误差RMSE     
         平均绝对误差MAE
         R2        
-    
-
 """
 from sklearn.metrics import precision_score # 精确度
 from sklearn.metrics import recall_score # 召回率

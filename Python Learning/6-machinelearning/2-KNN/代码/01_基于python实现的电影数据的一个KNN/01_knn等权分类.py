@@ -10,7 +10,8 @@ import numpy as np
 import pandas as pd
 
 ##初始化训练数据
-T = [[3, 104, -1],
+T = [
+     [3, 104, -1],
      [2, 100, -1],
      [1, 81, -1],
      [101, 10, 1],
@@ -33,10 +34,10 @@ listdistance.sort()
 
 # print(listdistance)
 ##选取K个邻居放入投票箱
-# print(listdistance[:K])
-arr = np.array(listdistance[:K])[:, -1]
+print(listdistance[:K])
+arr = np.array(listdistance[:K])[:, -1] # 二维数组所有行的最后一列
 print(arr)
-##统计投票
+#统计投票
 a = pd.Series(arr).value_counts()
 print(a)
 pre = a.idxmax()
