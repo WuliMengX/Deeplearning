@@ -28,8 +28,6 @@
     如果实际用到的特征只有少数几个，倾向于使用Lasso回归或者弹性网络，因为它们会将无用的特征权重降为0
     一般弹性网络优于Lasso回归。特征数量超过样本数或几个特征强相关的时候Lasso回归表现不稳定
     
-    
-    
 """
 """参考代码"""
 from sklearn.datasets import load_boston
