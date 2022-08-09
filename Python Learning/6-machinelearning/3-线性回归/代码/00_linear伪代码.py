@@ -9,12 +9,12 @@ class Linear:
 
     def train(self, X, Y):
         if self.b:
-            X = np.column_stack((np.ones_like(X), X))
+            X = np.column_stack((np.ones_like(X)[:,0], X)) # 使用截距则加一列1
         # 二、为了求解比较方便，将numpy的'numpy.ndarray'的数据类型转换为矩阵的形式的。
         X = np.mat(X)
         Y = np.mat(Y)
         # 三、根据解析式的公式求解theta的值
-        theta = (X.T * X).I * X.T * Y
+        theta = (X.T * X).I * X.T * Y   # 矩阵对象通过.I求逆矩阵，这是一行数值
         if self.b:
             self.theta0 = theta[0]
             self.theta = theta[1:]

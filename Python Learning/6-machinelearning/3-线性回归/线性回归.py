@@ -30,19 +30,29 @@
     
 """
 """参考代码"""
-from sklearn.datasets import load_boston
-from sklearn.linear_model import LassoCV, ElasticNetCV
+# from sklearn.datasets import load_boston
+# from sklearn.linear_model import LassoCV, ElasticNetCV
 
-boston = load_boston()
+# boston = load_boston()
+#
+# lscv = LassoCV(alphas=[1.0, 0.1, 0.01, 0.001, 0.005, 0.0025, 0.001, 0.00025], normalize=True)
+#
+# lscv.fit(boston.data, boston.target)
+#
+# print('Lasso optimal alpha:%.3f' % lscv.alpha_)
+#
+# encv = ElasticNetCV(alphas=[1.0, 0.01, 0.005, 0.0025, 0.001], l1_ratio=(0.1, 0.25, 0.5, 0.75, 0.9), normalize=True)
+#
+# encv.fit(boston.data, boston.target)
+#
+# print('ElasticNet optimal alpha:%.3f and L1 ratio:%.4f' % (encv.alpha_, encv.l1_ratio_))
 
-lscv = LassoCV(alphas=[1.0, 0.1, 0.01, 0.001, 0.005, 0.0025, 0.001, 0.00025], normalize=True)
+import numpy as np
 
-lscv.fit(boston.data, boston.target)
+X1 = np.array([10, 15, 20, 30, 50, 60, 60, 70]).reshape((-1, 1))
+Y = np.array([0.8, 1.0, 1.8, 2.0, 3.2, 3.0, 3.1, 3.5]).reshape((-1, 1))
 
-print('Lasso optimal alpha:%.3f' % lscv.alpha_)
+X1 = np.column_stack((np.ones_like(X1), X1))
+print(X1)
+print(Y)
 
-encv = ElasticNetCV(alphas=[1.0, 0.01, 0.005, 0.0025, 0.001], l1_ratio=(0.1, 0.25, 0.5, 0.75, 0.9), normalize=True)
-
-encv.fit(boston.data, boston.target)
-
-print('ElasticNet optimal alpha:%.3f and L1 ratio:%.4f' % (encv.alpha_, encv.l1_ratio_))
