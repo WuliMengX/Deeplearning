@@ -15,23 +15,23 @@ X = data.iloc[:, :-1]
 Y = data.iloc[:, -1]
 
 # 划分训练集和测试集
-xTarin, xTest, yTarin, yTest = train_test_split(X, Y, test_size=0.3, random_state=10)
+xTrain, xTest, yTrain, yTest = train_test_split(X, Y, test_size=0.3, random_state=10)
 
 # 构建模型
 # fit_intercept是否需要截距项
 linear = LinearRegression(fit_intercept=True)
 
 # 模型训练
-linear.fit(xTarin, yTarin)
-print(linear.coef_)
-print(linear.intercept_)
+linear.fit(xTrain, yTrain)
+print(linear.coef_)         # 系数theta
+print(linear.intercept_)    # 截距
 yPredict = linear.predict(xTest)
-print(linear.score(xTarin, yTarin))
+print(linear.score(xTrain, yTrain))
 print(linear.score(xTest, yTest))
-y_train_hat = linear.predict(xTarin)
+y_train_hat = linear.predict(xTrain)
 # 训练集
-plt.plot(range(len(xTarin)), yTarin, 'r', label=u'true')
-plt.plot(range(len(xTarin)), y_train_hat, 'g', label=u'predict')
+plt.plot(range(len(xTrain)), yTrain, 'r', label=u'true')
+plt.plot(range(len(xTrain)), y_train_hat, 'g', label=u'predict')
 plt.legend(loc='upper right')
 plt.show()
 

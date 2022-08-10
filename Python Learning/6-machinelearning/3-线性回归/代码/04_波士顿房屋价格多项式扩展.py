@@ -19,22 +19,23 @@ x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_
 
 # 特征工程
 '''
-PolynomialFeatures ####多项式扩展
+PolynomialFeatures ####多项式扩展 增加特征数量，提高拟合程度和模型复杂度
 degree=2,扩展的阶数
 interaction_only=False,是否只保留交互项
-include_bias=True，是否需要偏置项
+include_bias=True，是否需要偏置项   加一列1
 '''
 
-print(x_train.shape)
-print(x_test.shape)
-print(x_test.iloc[0,:])
+# print(x_train.shape)
+# print(x_test.shape)
+# print(x_test.iloc[0,:])
 poly = PolynomialFeatures(degree=3, interaction_only=True, include_bias=False)
 x_train_poly = poly.fit_transform(x_train)
 x_test_poly = poly.transform(x_test)
-print(x_train_poly.shape)
-print(x_test_poly.shape)
+# print(x_train_poly.shape)
+# print(x_test_poly.shape)
 # print(x_test_poly[0])
 # sys.exit()
+
 # 构建模型
 # linear = LinearRegression(fit_intercept=True)
 # lasso = Lasso(alpha=1000, fit_intercept=True)

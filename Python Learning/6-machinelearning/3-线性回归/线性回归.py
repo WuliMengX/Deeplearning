@@ -47,12 +47,3 @@
 #
 # print('ElasticNet optimal alpha:%.3f and L1 ratio:%.4f' % (encv.alpha_, encv.l1_ratio_))
 
-import numpy as np
-
-X1 = np.array([10, 15, 20, 30, 50, 60, 60, 70]).reshape((-1, 1))
-Y = np.array([0.8, 1.0, 1.8, 2.0, 3.2, 3.0, 3.1, 3.5]).reshape((-1, 1))
-
-X1 = np.column_stack((np.ones_like(X1), X1))
-print(X1)
-print(Y)
-
