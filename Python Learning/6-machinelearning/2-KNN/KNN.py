@@ -1,6 +1,4 @@
 """KNN"""
-import pandas as pd
-
 """
     有监督学习
     KNN三要素：
