@@ -1,5 +1,15 @@
 """概述"""
 """
+    符号约定：
+        X右上角数字代表第几个样本
+        X右下角数字代表第几个特征
+        
+    形式化定义：
+        假设函数 hypotheses function    hθ(x) 系数为θ的关于x的多项式
+        损失函数 loss function          L(θ)  表示单个样本的真实值与预测值的差距
+        代价函数 cost function          J(θ)  表示所有样本的真实值与预测值的平均差距
+        
+        
     TF-IDF:(term frequency–inverse document frequency)
         词条的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降
         
