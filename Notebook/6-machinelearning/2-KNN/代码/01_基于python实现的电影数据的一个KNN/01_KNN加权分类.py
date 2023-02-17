@@ -25,7 +25,7 @@ for i in T:
 listDistance.sort()
 
 print(listDistance)
-weight = [1/(i[0]+0.001) for i in listDistance[:K]]
+weight = [1/(i[0]+0.001) for i in listDistance[:K]] # 防止距离等于0
 # print(weight)
 # weight /= sum(weight)   # 权重归一化
 # print(weight)
