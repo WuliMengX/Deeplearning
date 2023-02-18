@@ -32,7 +32,6 @@ arr = np.array(listDistance[:K])[:, -1]
 a = pd.Series(arr).value_counts()
 print(a.idxmax())
 
-
 # ## KNN加权投票--分类
 # #初始化数据
 T = [

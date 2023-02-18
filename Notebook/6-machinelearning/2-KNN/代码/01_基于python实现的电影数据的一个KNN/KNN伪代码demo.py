@@ -84,7 +84,7 @@ class KNN:
 
     def score(self, x, y):
         '''
-
+        准确率
         :param x:
         :param y:
         :return: 准确率
@@ -105,7 +105,7 @@ if __name__ == '__main__':
     X_train = T[:, :-1]
     Y_train = T[:, -1]
     x_test = [[18, 90], [50, 50]]
-    knn = KNN(k=5)
+    knn = KNN(k=3)
     knn.fit(x=X_train, y=Y_train)
     print(knn.predict(X_train))
     print(knn.predict(x_test))
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     print(X.shape, Y.shape)
     x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
     print(x_train.shape, y_train.shape)
-    knn01 = KNN(k=1)
+    knn01 = KNN(k=3)
     knn01.fit(x_train, y_train)
     print(knn01.score(x_train, y_train))
     print(knn01.score(x_test, y_test))

@@ -1,12 +1,12 @@
 1、等权==》加权
 2、KNN的伪代码
-
+944570020@qq.com
 class KNN():
     def __init__(K):
         self.model = None
         pass
 
-    def train(X,Y):
+    def fit(X,Y):
         “读数据下来要存储”
 
         return self.model
@@ -15,6 +15,10 @@ class KNN():
     def predict(X,is_weight=True):
         “X 二维列表”
         “is_weight 是否采用加权投票”
+        # 第一步：计算x与每个样本的距离
+
+        # 更具前k个最近邻居的标签进行预测
+
 
         return X对应的预测标签列表
 

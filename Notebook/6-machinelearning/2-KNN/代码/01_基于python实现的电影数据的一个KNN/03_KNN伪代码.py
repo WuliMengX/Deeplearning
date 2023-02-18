@@ -25,13 +25,15 @@ class KNN():
     def __init__(self, k, with_kd_tree=True):
         self.k = k
         self.with_kd_tree = with_kd_tree
+        self.train_x = None
+        self.train_y = None
 
     def fit(self, x, y):
         '''
         fit 训练模型 保存训练数据
         如果with_kd_tree=True 则训练构建kd_tree
-        :param x:
-        :param y:
+        :param x:训练数据的特征矩阵
+        :param y:训练数据的label
         :return:
         '''
         ###将数据转化为numpy数组的形式
@@ -74,15 +76,17 @@ class KNN():
             ## 按照dis对listDistance进行排序
             # listDistance.sort()
             # print(listDistance)
-            sort_listDistance = np.sort(listDistance, axis=0)
+            # sort_listDistance = np.sort(listDistance, axis=1)
+            listDistance.sort()
+            k_neighbors_label = np.array(listDistance)[:self.k, -1]
             # print(sort_listDistance)
-            # print(type(sort_listDistance))
-
-            ## 获取取前K个最近距离的样本的标签
-            k_neighbors_label = sort_listDistance[:self.k, -1]
-            # print(k_neighbors_label)
-            ## 也可以获取前k个最近邻居的距离
-            k_neighbors_dis = sort_listDistance[:self.k, :-1]
+            # # print(type(sort_listDistance))
+            #
+            # ## 获取取前K个最近距离的样本的标签
+            # k_neighbors_label = sort_listDistance[:self.k, -1]
+            # # print(k_neighbors_label)
+            # ## 也可以获取前k个最近邻居的距离
+            # k_neighbors_dis = sort_listDistance[:self.k, :-1]
             return k_neighbors_label
 
     def predict(self, X):
@@ -97,10 +101,11 @@ class KNN():
         ## 定义一个列表接收每个样本的预测结果
         result = []
         for x in X:
+            # print(x)
             k_neighbors_label = self.fetch_k_neighbors(x)
             ### 统计每个类别出现的次数
             y_count = pd.Series(k_neighbors_label).value_counts()
-            # print(y_count)
+            # print("y_count",y_count)
             ### 产生结果
             y_ = y_count.idxmax()
             # y_ = y_count.argmax() ##idxmax() 和 argmax 功能一样，获取最大值对应的下标索引
@@ -114,9 +119,26 @@ class KNN():
         :param y:
         :return:
         '''
-        y_true = y
+        y_true = np.array(y)
         y_pred = self.predict(x)
-        return accuracy_score(y_true, y_pred)
+        # print("y_hat", y_pred)
+        return np.mean(y_true == y_pred)
+        # return accuracy_score(y_true, y_pred)
+
+    def save_model(self,path):
+        """
+
+        :return:
+        """
+
+        pass
+
+    def load_model(self,path):
+        """
+
+        :param path:
+        :return:
+        """
 
 
 if __name__ == '__main__':
@@ -130,8 +152,9 @@ if __name__ == '__main__':
     X_train = T[:, :-1]
     Y_train = T[:, -1]
     x_test = [[18, 90], [50, 10]]
-    knn = KNN(k=5, with_kd_tree=True)
+    knn = KNN(k=5, with_kd_tree=False)
     knn.fit(x=X_train, y=Y_train)
+    # print(knn.predict(X_train))
     print(knn.socre(x=X_train, y=Y_train))
     # knn.fetch_k_neighbors(x_test[0])
     print('预测结果：{}'.format(knn.predict(x_test)))
@@ -143,7 +166,7 @@ if __name__ == '__main__':
     print(X.shape, Y.shape)
     x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
     print(x_train.shape, y_train.shape)
-    knn01 = KNN(k=3, with_kd_tree=True)
+    knn01 = KNN(k=3, with_kd_tree=False)
     knn01.fit(x_train, y_train)
     print(knn01.socre(x_train, y_train))
     print(knn01.socre(x_test, y_test))

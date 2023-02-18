@@ -8,17 +8,19 @@ import pandas as pd
 import numpy as np
 import sys
 from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
+from sklearn.metrics import accuracy_score, recall_score, precision_score, r2_score
+from sklearn.preprocessing import LabelEncoder
 
 # 1. 加载数据(数据一般存在于磁盘或者数据库)
 path = '../datas/iris.data'
-names = ['A', 'B', 'C', 'D', 'cla']
+names = ['x1', 'x2', 'x3', 'x4', 'y']
 df = pd.read_csv(path, header=None, names=names, sep=",")
+print(df.head())
+print(df.shape)
+print(df["y"].value_counts())
 
 
-# print(df.head())
-# print(df.shape)
-# print(df["cla"].value_counts())
 # sys.exit()
 
 
@@ -28,7 +30,7 @@ def parse_record(row):
     result = []
     r = zip(names, row)
     for name, value in r:
-        if name == 'cla':
+        if name == 'y':
             if value == 'Iris-setosa':
                 result.append(1)
             elif value == 'Iris-versicolor':
@@ -43,24 +45,28 @@ def parse_record(row):
 
 
 df = df.apply(lambda row: pd.Series(parse_record(row), index=names), axis=1)
-df.cla = df.cla.astype(np.int32)
+df['y'] = df['y'].astype(np.int32)
 df.info()
-# print(df.cla.value_counts())
+print(df["y"].value_counts())
 flag = False
+# sys.exit()
 # df = df[df.cla != 3]
 # print(df.cla.value_counts())
 
 # # 3. 根据需求获取最原始的特征属性矩阵X和目标属性Y
+# X = df.iloc[:,:-1]
 X = df[names[0:-1]]
-# print(X.shape)
+print(X.shape)
 Y = df[names[-1]]
-# print(Y.value_counts())
+print(Y.shape)
+print(Y.value_counts())
 # sys.exit()
 
 # 4. 数据分割
 # train_size: 给定划分之后的训练数据的占比是多少，默认0.75
+# test_size:
 # random_state：给定在数据划分过程中，使用到的随机数种子，默认为None，使用当前的时间戳；给定非None的值，可以保证多次运行的结果是一致的。
-x_train, x_test, y_train, y_test = train_test_split(X, Y, train_size=0.6, random_state=28)
+x_train, x_test, y_train, y_test = train_test_split(X, Y, train_size=0.8, random_state=1)
 print("训练数据X的格式:{}, 以及类型:{}".format(x_train.shape, type(x_train)))
 print("测试数据X的格式:{}".format(x_test.shape))
 print("训练数据Y的类型:{}".format(type(y_train)))
@@ -80,7 +86,7 @@ KNN:
     metric_params=None, 
     n_jobs=1
 """
-KNN = KNeighborsClassifier(n_neighbors=1, weights='uniform', algorithm='kd_tree')
+KNN = KNeighborsClassifier(n_neighbors=10, weights='uniform', algorithm='kd_tree')
 
 # 7. 模型的训练
 KNN.fit(x_train, y_train)
@@ -90,9 +96,10 @@ train_predict = KNN.predict(x_train)
 test_predict = KNN.predict(x_test)
 print("KNN算法：测试集上的效果(准确率):{}".format(KNN.score(x_test, y_test)))
 print("KNN算法：训练集上的效果(准确率):{}".format(KNN.score(x_train, y_train)))
-
+print(accuracy_score(y_true=y_train, y_pred=train_predict))
 # 模型的保存与加载
+# pip install joblib
 import joblib
 
 joblib.dump(KNN, "./knn.m")  # 保存模型
-# joblib.load() # 加载模型
+# joblib.load(path) # 加载模型
